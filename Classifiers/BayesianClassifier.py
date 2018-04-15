@@ -29,7 +29,7 @@ class BayesianClassifier:
 
     # Load dataset from csv file
     def _loadCsv(self,filename):
-        lines = csv.reader(open(filename, "rb"))
+        lines = csv.reader(open(filename, "r"))
         self.dataset = list(lines)
         for i in range(len(self.dataset)): # The last is the classId, not convert
             self.dataset[i] = [float(x) for x in self.dataset[i]]
@@ -127,7 +127,7 @@ class BayesianClassifier:
                 score += 1
             index += 1
 
-        print [float(score)/float(len(self.dataset)),i,j]
+        print([float(score)/float(len(self.dataset)),i,j])
         return [i,j]
 
 
